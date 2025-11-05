@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Profile Playboy Service Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Book Your High Profile Playboy Service</h1>
+<form id="bookingForm">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="service">Select Service:</label>
+    <select id="service" name="service" required>
+        <option value="">--Please choose an option--</option>
+        <option value="in call service">in call service</option>
+        <option value="out call service">out call service</option>
+        <option value="full day service,full night service pregnancy service">full day service,full night service pregnancy service</option>
+    </select>
+
+    <label for="message">Additional Requests:</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <button type="submit">Book Now</button>
+    <div class="error" id="errorMessage"></div>
+</form>
+
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Clear previous error messages
+        errorMessage.textContent = '';
+
+        // Simple validation
+        if (!name || !email || !service) {
+            errorMessage.textContent = 'Please fill in all required fields.';
+            return;
+        }
+
+        // Simulate a booking process
+        try {
+            // Here you would typically send the data to a server
+            console.log('Booking Details:', { name, email, service, message });
+            alert('Booking successful! We will contact you soon.');
+        } catch (error) {
+            errorMessage.textContent = 'An error occurred while processing your booking. Please try again later.';
+            console.error('Booking error:', error);
+        }
+    });
+</script>
+
+</body>
+</html>
